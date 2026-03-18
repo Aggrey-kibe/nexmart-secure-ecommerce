@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NEXMART — Premium products, secure shopping, delivered to your door." />
+  <meta name="theme-color" content="#0d0d0f" />
+
+  <!-- Security headers via meta (backend headers take precedence) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+
+  <title>NEXMART — Premium E-Commerce</title>
+
+  <!-- Fonts loaded in CSS via @import -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages/pages.css" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>" />
+</head>
+<body>
+
+  <!-- ── Navigation (injected by navbar.js) ──────────────── -->
+  <header id="main-header" role="banner"></header>
+
+  <main class="page-wrapper">
+
+    <!-- ── Hero Section ──────────────────────────────────── -->
+    <section class="hero" aria-label="Hero">
+      <div class="container">
+        <div class="hero__content">
+          <div class="hero__eyebrow">
+            <span>⬡</span>
+            New Season Collection Now Live
+          </div>
+          <h1 class="hero__title">
+            Shop the<br/>
+            <span class="accent-word">Future</span><br/>
+            of Retail.
+          </h1>
+          <p class="hero__subtitle">
+            Curated products, uncompromising quality, and a checkout experience
+            built for the modern shopper.
+          </p>
+          <div class="hero__cta">
+            <a href="/shop.html" class="btn btn--primary btn--lg">
+              Explore Shop
+            </a>
+            <a href="#featured" class="btn btn--outline btn--lg">
+              See What's New
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ── Stats Bar ──────────────────────────────────────── -->
+    <section class="stats-bar" aria-label="Platform statistics">
+      <div class="container">
+        <div class="stats-bar__inner">
+          <div class="stat-item">
+            <div class="stat-item__value">500+</div>
+            <div class="stat-item__label">Products</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__value">10k+</div>
+            <div class="stat-item__label">Happy Customers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__value">50+</div>
+            <div class="stat-item__label">Brands</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__value">24/7</div>
+            <div class="stat-item__label">Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Featured Products ─────────────────────────────── -->
+    <section class="section" id="featured" aria-label="Featured products">
+      <div class="container">
+        <div class="featured-header">
+          <div>
+            <div class="section-label">Hand-picked for you</div>
+            <h2 class="section-title">Featured Products</h2>
+          </div>
+          <a href="/shop.html" class="btn btn--outline">
+            View All →
+          </a>
+        </div>
+
+        <!-- Product grid (populated by JS) -->
+        <div class="grid-4 stagger-children" id="featured-grid" aria-live="polite">
+          <!-- Skeleton placeholders shown before JS loads -->
+          <div class="skeleton-card"><div class="skeleton skeleton--img"></div><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--price"></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton--img"></div><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--price"></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton--img"></div><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--price"></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton--img"></div><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--price"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Promo Banner ───────────────────────────────────── -->
+    <section class="section--sm observe-scroll" aria-label="Promotion">
+      <div class="container">
+        <div class="promo-banner">
+          <div>
+            <div class="promo-banner__title">Free Shipping on Orders Over $50</div>
+            <p class="promo-banner__text">Plus free returns on every order — no questions asked.</p>
+          </div>
+          <a href="/shop.html" class="btn btn--outline" style="background:#0d0d0f; border-color:#0d0d0f; color:#f5a623; flex-shrink:0">
+            Shop Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Why NEXMART ─────────────────────────────────────── -->
+    <section class="section observe-scroll" aria-label="Why choose NEXMART">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: var(--space-12)">
+          <div class="section-label" style="justify-content: center">Why NEXMART</div>
+          <h2 class="section-title">Built for the Modern Shopper</h2>
+        </div>
+
+        <div class="grid-3 stagger-children">
+          <div class="card p-8" style="text-align:center">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-4)">🔒</div>
+            <h3 style="font-family:var(--font-display); font-size: var(--text-xl); font-weight:700; margin-bottom:var(--space-3)">
+              Bank-Grade Security
+            </h3>
+            <p style="color: var(--clr-text-2); font-size: var(--text-sm); line-height:1.8">
+              JWT authentication, bcrypt password hashing, and end-to-end encryption
+              protect every transaction you make.
+            </p>
+          </div>
+
+          <div class="card p-8" style="text-align:center">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-4)">⚡</div>
+            <h3 style="font-family:var(--font-display); font-size: var(--text-xl); font-weight:700; margin-bottom:var(--space-3)">
+              Lightning Fast
+            </h3>
+            <p style="color: var(--clr-text-2); font-size: var(--text-sm); line-height:1.8">
+              Optimized backend APIs, intelligent caching, and a lightweight frontend
+              deliver instant page loads every time.
+            </p>
+          </div>
+
+          <div class="card p-8" style="text-align:center">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-4)">📦</div>
+            <h3 style="font-family:var(--font-display); font-size: var(--text-xl); font-weight:700; margin-bottom:var(--space-3)">
+              Curated Quality
+            </h3>
+            <p style="color: var(--clr-text-2); font-size: var(--text-sm); line-height:1.8">
+              Every product in our catalog is vetted for quality. We don't list it
+              unless we'd buy it ourselves.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__brand-name">
+            <span style="color: var(--clr-accent)">⬡</span> NEXMART
+          </div>
+          <p class="footer__tagline">
+            The future of e-commerce — secure, fast, and beautifully designed.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Shop</h4>
+          <div class="footer__links">
+            <a href="/shop.html">All Products</a>
+            <a href="/shop.html?featured=true">Featured</a>
+            <a href="/shop.html?in_stock=true">In Stock</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Account</h4>
+          <div class="footer__links">
+            <a href="/auth.html">Sign In</a>
+            <a href="/auth.html?tab=register">Register</a>
+            <a href="/orders.html">My Orders</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Security</h4>
+          <div class="footer__links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 NEXMART. All rights reserved.</span>
+        <span>Built with Django + Vanilla JS • Secured with JWT + bcrypt</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Scripts: load order matters ──────────────────────── -->
+  <!-- Core modules first -->
+  <script src="js/components/toast.js"></script>
+  <script src="js/components/loader.js"></script>
+  <script src="js/core/store.js"></script>
+  <script src="js/core/api.js"></script>
+  <script src="js/core/auth.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <!-- Page script last -->
+  <script src="js/pages/home.js"></script>
+</body>
+</html>

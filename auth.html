@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in or create your NEXMART account" />
+  <title>Sign In — NEXMART</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages/pages.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>" />
+</head>
+<body>
+
+  <!-- Auth page: full-height split layout, no persistent header -->
+  <div class="auth-page">
+
+    <!-- ── Left visual panel ──────────────────────────────── -->
+    <div class="auth-visual" role="complementary" aria-label="NEXMART brand panel">
+      <a href="/index.html" aria-label="NEXMART Home">
+        <div class="auth-visual__brand">
+          <span style="color: var(--clr-accent)">⬡</span> NEXMART
+        </div>
+      </a>
+      <p class="auth-visual__tagline">
+        The future of e-commerce — curated products, uncompromising security,
+        and a checkout built for the modern shopper.
+      </p>
+
+      <!-- Feature bullets -->
+      <div style="margin-top: var(--space-8); display: flex; flex-direction: column; gap: var(--space-4); position: relative; z-index:1">
+        <div style="display:flex; align-items:center; gap: var(--space-3); font-size: var(--text-sm); color: var(--clr-text-2)">
+          <span style="color:var(--clr-success); font-size: var(--text-base)">✓</span>
+          bcrypt + JWT authentication
+        </div>
+        <div style="display:flex; align-items:center; gap: var(--space-3); font-size: var(--text-sm); color: var(--clr-text-2)">
+          <span style="color:var(--clr-success); font-size: var(--text-base)">✓</span>
+          Role-based access control
+        </div>
+        <div style="display:flex; align-items:center; gap: var(--space-3); font-size: var(--text-sm); color: var(--clr-text-2)">
+          <span style="color:var(--clr-success); font-size: var(--text-base)">✓</span>
+          Rate limiting on login (5/min)
+        </div>
+        <div style="display:flex; align-items:center; gap: var(--space-3); font-size: var(--text-sm); color: var(--clr-text-2)">
+          <span style="color:var(--clr-success); font-size: var(--text-base)">✓</span>
+          XSS & CSRF protected
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Right auth panel ───────────────────────────────── -->
+    <div class="auth-panel" role="main">
+
+      <!-- Tab switcher -->
+      <div class="auth__tabs" role="tablist">
+        <button
+          class="auth__tab"
+          id="login-tab"
+          role="tab"
+          aria-selected="true"
+          aria-controls="login-form-section"
+        >
+          Sign In
+        </button>
+        <button
+          class="auth__tab"
+          id="register-tab"
+          role="tab"
+          aria-selected="false"
+          aria-controls="register-form-section"
+        >
+          Register
+        </button>
+      </div>
+
+      <h1 class="auth__title" id="auth-title">Welcome back</h1>
+      <p class="auth__subtitle" id="auth-subtitle">Sign in to your account</p>
+
+      <!-- ── Login Form ─────────────────────────────────── -->
+      <div id="login-form-section" role="tabpanel" aria-labelledby="login-tab">
+        <form class="auth-form" id="login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              class="form-input"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <label class="form-label" for="login-password">Password</label>
+              <a href="#" style="font-size: var(--text-xs); color: var(--clr-accent)">
+                Forgot password?
+              </a>
+            </div>
+            <div style="position:relative">
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                class="form-input"
+                placeholder="••••••••"
+                autocomplete="current-password"
+                required
+              />
+              <button
+                type="button"
+                class="btn btn--ghost btn--sm"
+                style="position:absolute; right:var(--space-2); top:50%; transform:translateY(-50%); padding: var(--space-1) var(--space-2)"
+                onclick="togglePasswordVisibility('login-password', this)"
+                aria-label="Toggle password visibility"
+              >
+                👁
+              </button>
+            </div>
+          </div>
+
+          <!-- Rate limit notice -->
+          <p style="font-size: var(--text-xs); color: var(--clr-text-3); padding: var(--space-3); background: var(--clr-surface); border-radius: var(--radius-md)">
+            🔒 Login is rate-limited to 5 attempts per minute for your security.
+          </p>
+
+          <button type="submit" class="btn btn--primary btn--full btn--lg">
+            Sign In
+          </button>
+
+          <p style="text-align:center; font-size: var(--text-sm); color: var(--clr-text-2)">
+            Don't have an account?
+            <button type="button" onclick="document.getElementById('register-tab').click()"
+                    style="background:none;border:none;color:var(--clr-accent);cursor:pointer;font-weight:600">
+              Create one
+            </button>
+          </p>
+        </form>
+      </div>
+
+      <!-- ── Register Form ──────────────────────────────── -->
+      <div id="register-form-section" role="tabpanel" aria-labelledby="register-tab" style="display:none">
+        <form class="auth-form" id="register-form" novalidate>
+
+          <div class="auth-form__grid">
+            <div class="form-group">
+              <label class="form-label" for="reg-first-name">First Name</label>
+              <input
+                type="text"
+                id="reg-first-name"
+                name="first_name"
+                class="form-input"
+                placeholder="Jane"
+                autocomplete="given-name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="reg-last-name">Last Name</label>
+              <input
+                type="text"
+                id="reg-last-name"
+                name="last_name"
+                class="form-input"
+                placeholder="Doe"
+                autocomplete="family-name"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address</label>
+            <input
+              type="email"
+              id="reg-email"
+              name="email"
+              class="form-input"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">Phone Number <span style="color:var(--clr-text-3)">(optional)</span></label>
+            <input
+              type="tel"
+              id="reg-phone"
+              name="phone"
+              class="form-input"
+              placeholder="+254 700 000 000"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password</label>
+            <div style="position:relative">
+              <input
+                type="password"
+                id="reg-password"
+                name="password"
+                class="form-input"
+                placeholder="Min. 8 characters"
+                autocomplete="new-password"
+                required
+              />
+              <button
+                type="button"
+                class="btn btn--ghost btn--sm"
+                style="position:absolute; right:var(--space-2); top:50%; transform:translateY(-50%); padding: var(--space-1) var(--space-2)"
+                onclick="togglePasswordVisibility('reg-password', this)"
+                aria-label="Toggle password visibility"
+              >
+                👁
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password-confirm">Confirm Password</label>
+            <input
+              type="password"
+              id="reg-password-confirm"
+              name="password_confirm"
+              class="form-input"
+              placeholder="Re-enter your password"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <!-- Password strength note -->
+          <p style="font-size: var(--text-xs); color: var(--clr-text-3); padding: var(--space-3); background: var(--clr-surface); border-radius: var(--radius-md)">
+            🔐 Password is hashed with <strong style="color:var(--clr-text-2)">bcrypt</strong> before storage.
+            Use 8+ characters with a mix of letters and numbers.
+          </p>
+
+          <button type="submit" class="btn btn--primary btn--full btn--lg">
+            Create Account
+          </button>
+
+          <p style="text-align:center; font-size: var(--text-sm); color: var(--clr-text-2)">
+            Already have an account?
+            <button type="button" onclick="document.getElementById('login-tab').click()"
+                    style="background:none;border:none;color:var(--clr-accent);cursor:pointer;font-weight:600">
+              Sign in
+            </button>
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/components/toast.js"></script>
+  <script src="js/components/loader.js"></script>
+  <script src="js/core/store.js"></script>
+  <script src="js/core/api.js"></script>
+  <script src="js/core/auth.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/pages/auth.js"></script>
+
+  <script>
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = '🙈';
+      } else {
+        input.type = 'password';
+        btn.textContent = '👁';
+      }
+    }
+  </script>
+</body>
+</html>
