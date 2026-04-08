@@ -296,7 +296,7 @@ server {
 
 | Role     | Email                    | Password     |
 |----------|--------------------------|--------------|
-| Admin    | admin@nexmart.com        | Admin@123!   |
+| Admin    | aggreykwamboka@protinmail.com        | Admin@123!   |
 | Customer | (register via /auth.html)| (your choice)|
 
 > ⚠️ **Change the admin password immediately after first login!**
