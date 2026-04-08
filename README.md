@@ -5,7 +5,7 @@
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 1. [Tech Stack](#tech-stack)
 2. [Security Features](#security-features)
@@ -17,7 +17,7 @@
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Layer      | Technology                                      |
 |------------|-------------------------------------------------|
@@ -30,7 +30,7 @@
 
 ---
 
-## 🔐 Security Features
+##  Security Features
 
 | Feature               | Implementation                                        |
 |-----------------------|-------------------------------------------------------|
@@ -49,7 +49,7 @@
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Python 3.11+
@@ -138,7 +138,7 @@ python -m http.server 5500
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 nexmart/
@@ -176,7 +176,7 @@ nexmart/
 
 ---
 
-## 🌐 API Reference
+##  API Reference
 
 ### Authentication
 | Method | Endpoint                    | Auth | Description                  |
@@ -218,7 +218,7 @@ nexmart/
 
 ---
 
-## 🚀 Deployment Guide (Ubuntu + Nginx)
+##  Deployment Guide (Ubuntu + Nginx)
 
 ### 1. Install system dependencies
 ```bash
@@ -292,18 +292,18 @@ server {
 
 ---
 
-## 🔑 Default Credentials
+##  Default Credentials
 
 | Role     | Email                    | Password     |
 |----------|--------------------------|--------------|
 | Admin    | aggreykwamboka@protinmail.com        | Brightvibe@2026   |
 | Customer | (register via /auth.html)| (your choice)|
 
-> ⚠️ **Change the admin password immediately after first login!**
+>  **Change the admin password immediately after first login!**
 
 ---
 
-## 📝 License
+##  License
 
 MIT License. Built for portfolio demonstration purposes.
 
